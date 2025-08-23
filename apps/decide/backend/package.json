@@ -1,0 +1,23 @@
+{
+  "name": "decide-backend",
+  "version": "1.0.0",
+  "description": "Backend API for the Decide micro-frontend",
+  "scripts": {
+    "dev": "cross-env PORT=3002 ts-node src/server.ts",
+    "prebuild": "rimraf ../dist",
+    "build": "tsc",
+    "prod": "cross-env NODE_ENV=production node ../dist/server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.7",
+    "cross-env": "^7.0.3",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}

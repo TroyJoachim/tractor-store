@@ -1,0 +1,34 @@
+import React from "react";
+import { src, srcset } from "../utils";
+
+type StoreProps = {
+  name?: string;
+  image?: string;
+  street?: string;
+  city?: string;
+};
+
+const Store: React.FC<StoreProps> = ({ name = "", image = "", street = "", city = "" }) => {
+  return (
+    <li className="e_Store">
+      <div className="e_Store_content">
+        <img
+          className="e_Store_image"
+          src={src(image || "", 200)}
+          srcSet={srcset(image || "", [200, 400])}
+          width={200}
+          height={200}
+        />
+        <p className="e_Store_address">
+          {name}
+          <br />
+          {street}
+          <br />
+          {city}
+        </p>
+      </div>
+    </li>
+  );
+};
+
+export default Store;

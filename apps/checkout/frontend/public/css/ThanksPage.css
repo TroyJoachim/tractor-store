@@ -1,0 +1,12 @@
+.ch_ThanksPage {
+  padding: 1rem;
+}
+
+.ch_ThanksPage__title {
+  margin: 4rem 0;
+  font-size: 40px;
+}
+
+.ch_ThanksPage__text {
+  margin: 4rem 0;
+}

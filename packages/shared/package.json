@@ -1,0 +1,23 @@
+{
+  "name": "@tractor-store/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared utilities for tractor-store micro-frontends",
+  "exports": {
+    ".": "./src/index.ts",
+    "./react-webcomponent": "./src/react-webcomponent.ts",
+    "./MFE": "./src/MFE.tsx"
+  },
+  "types": "./src/index.ts",
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

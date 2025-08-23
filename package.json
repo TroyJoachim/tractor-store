@@ -1,5 +1,5 @@
 {
-  "name": "tractor-store-preact",
+  "name": "tractor-store",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,21 +7,31 @@
     "node": ">=21.0.0"
   },
   "scripts": {
-    "start:integration": "cd ./integration && npm run start",
-    "start:explore": "cd ./explore && npm run start",
-    "start:decide": "cd ./decide && npm run start",
-    "start:checkout": "cd ./checkout && npm run start",
-    "prod:integration": "cd ./integration && npm run prod",
-    "prod:explore": "cd ./explore && npm run prod",
-    "prod:decide": "cd ./decide && npm run prod",
-    "prod:checkout": "cd ./checkout && npm run prod",
-    "start": "concurrently -c dim,red,green,yellow npm:start:*",
-    "prod": "concurrently -c dim,red,green,yellow npm:prod:*",
-    "install:all": "concurrently -m 1 'npm --prefix explore install' 'npm --prefix decide install' 'npm --prefix checkout install' 'npm --prefix integration install'"
+    "build:shell": "pnpm --filter shell-backend --filter shell-frontend run build",
+    "build:explore": "pnpm --filter explore-backend --filter explore-frontend run build",
+    "build:decide": "pnpm --filter decide-backend --filter decide-frontend run build",
+    "build:checkout": "pnpm --filter checkout-backend --filter checkout-frontend run build",
+    "build": "pnpm --filter shell-backend --filter shell-frontend --filter explore-backend --filter explore-frontend --filter checkout-backend --filter checkout-frontend --filter decide-backend --filter decide-frontend run build",
+    "build:mfes": "pnpm --filter explore-frontend run build && pnpm --filter checkout-frontend run build && pnpm --filter decide-frontend run build",
+    "prod:integration": "pnpm --filter apps/integration run prod",
+    "prod:shell": "pnpm --filter shell-backend run prod",
+    "prod:explore": "pnpm --filter explore-backend run prod",
+    "prod:decide": "pnpm --filter decide-backend run prod",
+    "prod:checkout": "pnpm --filter checkout-backend run prod",
+    "dev:backends": "concurrently -c dim,red,blue,cyan \"pnpm --filter explore-backend run dev\" \"pnpm --filter shell-backend run start:dev\" \"pnpm --filter checkout-backend run dev\" \"pnpm --filter decide-backend run dev\"",
+    "dev:frontends": "concurrently -c green,yellow,magen`ta,white \"pnpm --filter explore-frontend run dev\" \"pnpm --filter shell-frontend run dev\" \"pnpm --filter checkout-frontend run dev\" \"pnpm --filter decide-frontend run dev\"",
+    "prod": "pnpm run build && concurrently -c dim,red,green,blue \"pnpm --filter shell-backend run prod\" \"pnpm --filter explore-backend run prod\" \"pnpm --filter decide-backend run prod\" \"pnpm --filter checkout-backend run prod\" ",
+    "install:all": "pnpm install"
   },
-  "author": "neuland",
+  "author": "Troy Joachim",
   "license": "ISC",
+  "pnpm": {
+    "overrides": {
+      "@types/node": "22.19.3"
+    }
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "wait-on": "^9.0.1"
   }
 }

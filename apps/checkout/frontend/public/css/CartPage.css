@@ -1,0 +1,33 @@
+.ch_CartPage {
+  padding: 1rem;
+}
+
+.ch_CartPage__lineItems {
+  list-style: none;
+  padding: 0;
+}
+
+.ch_CartPage hr {
+  border: 0;
+  height: 2px;
+  background-color: black;
+}
+
+.ch_CartPage__total {
+  margin: 2rem 0 3rem;
+  text-align: right;
+  font-weight: bold;
+}
+
+.ch_CartPage__buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+
+.ch_CartPage__buttons > * {
+  flex: 0;
+}
