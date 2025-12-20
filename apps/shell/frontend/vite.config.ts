@@ -13,46 +13,47 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-    react(),
-    federation({
-      name: "shell",
-      exposes: {},
-      remotes: {
-        explore: {
-          type: "module",
-          name: "explore",
-          entry: remoteExploreEntry,
-          entryGlobalName: "explore",
-          shareScope: "default",
+      react(),
+      federation({
+        name: "shell",
+        manifest: true,
+        exposes: {},
+        remotes: {
+          explore: {
+            type: "module",
+            name: "explore",
+            entry: remoteExploreEntry,
+            entryGlobalName: "explore",
+            shareScope: "default",
+          },
         },
-      },
-      shared: {
-        react: {
-          singleton: true,
+        shared: {
+          react: {
+            singleton: true,
+          },
+          "react-dom": {
+            singleton: true,
+          },
+          "react/jsx-runtime": {
+            singleton: true,
+          },
+          "react-dom/client": {
+            singleton: true,
+          },
+          "react-router": {
+            singleton: true,
+          },
         },
-        "react-dom": {
-          singleton: true,
-        },
-        "react/jsx-runtime": {
-          singleton: true,
-        },
-        "react-dom/client": {
-          singleton: true,
-        },
-        "react-router": {
-          singleton: true,
-        },
-      },
-    }),
+      }),
     ],
     build: {
-    target: "esnext",
-    minify: true,
-    outDir: "../dist/public",
-    emptyOutDir: false,
-    modulePreload: {
-      polyfill: false,
-    },
+      target: "esnext",
+      minify: true,
+      outDir: "../dist/public",
+      emptyOutDir: false,
+      modulePreload: {
+        polyfill: false,
+      },
     },
     server: {
       origin: devOrigin,

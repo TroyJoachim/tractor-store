@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
       federation({
         name: "explore",
         filename: "remote-entry.js",
-        hostInitInjectLocation: "entry",
+        manifest: true,
         exposes: {
           "./explore-home-page": "./src/client/explore-home-page.tsx",
           "./explore-recommendations": "./src/client/explore-recommendations.tsx",

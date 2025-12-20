@@ -15,55 +15,55 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-    react(),
-    federation({
-      name: "checkout",
-      filename: "remote-entry.js",
-      hostInitInjectLocation: "entry",
-      exposes: {
-        "./checkout-add-to-cart": "./src/client/checkout-add-to-cart.tsx",
-        "./checkout-mini-cart": "./src/client/checkout-mini-cart.tsx",
-        "./checkout-cart-page": "./src/client/checkout-cart-page.tsx",
-        "./checkout-checkout-page": "./src/client/checkout-checkout-page.tsx",
-        "./checkout-thanks-page": "./src/client/checkout-thanks-page.tsx",
-      },
-      remotes: {
-        explore: {
-          type: "module",
-          name: "explore",
-          entry: remoteExploreEntry,
-          entryGlobalName: "explore",
-          shareScope: "default",
+      react(),
+      federation({
+        name: "checkout",
+        filename: "remote-entry.js",
+        manifest: true,
+        exposes: {
+          "./checkout-add-to-cart": "./src/client/checkout-add-to-cart.tsx",
+          "./checkout-mini-cart": "./src/client/checkout-mini-cart.tsx",
+          "./checkout-cart-page": "./src/client/checkout-cart-page.tsx",
+          "./checkout-checkout-page": "./src/client/checkout-checkout-page.tsx",
+          "./checkout-thanks-page": "./src/client/checkout-thanks-page.tsx",
         },
-      },
-      shared: {
-        react: {
-          singleton: true,
+        remotes: {
+          explore: {
+            type: "module",
+            name: "explore",
+            entry: remoteExploreEntry,
+            entryGlobalName: "explore",
+            shareScope: "default",
+          },
         },
-        "react-dom": {
-          singleton: true,
+        shared: {
+          react: {
+            singleton: true,
+          },
+          "react-dom": {
+            singleton: true,
+          },
+          "react/jsx-runtime": {
+            singleton: true,
+          },
+          "react-dom/client": {
+            singleton: true,
+          },
+          "react-router": {
+            singleton: true,
+          },
         },
-        "react/jsx-runtime": {
-          singleton: true,
-        },
-        "react-dom/client": {
-          singleton: true,
-        },
-        "react-router": {
-          singleton: true,
-        },
-      },
-    }),
+      }),
     ],
     base,
     build: {
-    outDir: "../dist/public",
-    emptyOutDir: false,
-    minify: true,
-    target: "esnext",
-    modulePreload: {
-      polyfill: false,
-    },
+      outDir: "../dist/public",
+      emptyOutDir: false,
+      minify: true,
+      target: "esnext",
+      modulePreload: {
+        polyfill: false,
+      },
     },
     server: {
       origin: devOrigin,
