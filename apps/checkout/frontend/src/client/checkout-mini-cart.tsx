@@ -3,6 +3,9 @@ import { defineReactWebComponent } from "@tractor-store/shared/react-webcomponen
 import MiniCart from "../components/MiniCart";
 import { fetchData } from "@tractor-store/shared";
 
+const HOST = import.meta.env.VITE_HOST || 'http://localhost';
+const PORT = import.meta.env.VITE_PORT || '4003';
+
 const MiniCartCe = () => {
   const [state, setState] = useState<any>({});
   const [highlight, setHighlight] = useState(false);
@@ -40,7 +43,11 @@ const MiniCartCe = () => {
   return <MiniCart {...state} highlight={highlight} />;
 };
 
-defineReactWebComponent({ component: MiniCartCe, tag: "checkout-mini-cart" });
+defineReactWebComponent({
+  component: MiniCartCe,
+  cssHref: `${HOST}:${PORT}/css/index.css`,
+  tag: "checkout-mini-cart"
+});
 
 const WebComponent = () => <checkout-mini-cart></checkout-mini-cart>;
 export default WebComponent;

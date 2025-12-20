@@ -56,6 +56,7 @@ Defines a custom element that mounts a React component into its shadow root.
 **Options:**
 
 - `component` - The React component to mount
+- `cssHref` - The href to the css file
 - `tag` - The custom element tag name (must contain a hyphen)
 - `dataBoundaryPageAttr` - (optional) Value for adding a data-boundary-page attribute
 - `observedAttrs` - (optional) Array of attribute names to observe for changes

@@ -6,6 +6,8 @@ interface DefineReactWebComponentOptions {
   component: ComponentType<Record<string, any>>;
   /** The custom element tag name (must contain a hyphen) */
   tag: string;
+  /** Optional CSS href for the stylesheet */
+  cssHref: string;
   /** Optional value for adding a data-boundary-page attribute */
   dataBoundaryPageAttr?: string;
   /** Optional value for adding a data-boundary attribute */
@@ -16,7 +18,6 @@ interface DefineReactWebComponentOptions {
 
 /**
  * Define a custom element that mounts a React component into its shadow root.
- * Uses VITE_HOST and VITE_PORT environment variables for stylesheet loading.
  */
 export function defineReactWebComponent({
   component: Comp,
@@ -24,11 +25,9 @@ export function defineReactWebComponent({
   dataBoundaryPageAttr,
   dataBoundaryAttr,
   observedAttrs = [],
+  cssHref,
 }: DefineReactWebComponentOptions): void {
   if (customElements.get(tag)) return;
-
-  const HOST = import.meta.env.VITE_HOST || 'http://localhost';
-  const PORT = import.meta.env.VITE_PORT || '4000';
 
   class WC extends HTMLElement {
     private _root: Root | null = null;
@@ -49,11 +48,11 @@ export function defineReactWebComponent({
         // Inject CSS into shadow root
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = `${HOST}:${PORT}/css/index.css`;
+        link.href = cssHref;
         this.shadowRoot!.appendChild(link);
 
         const mount = document.createElement("div");
-        
+
         // For demo only to add the attribute
         if (dataBoundaryPageAttr) {
           mount.setAttribute('data-boundary-page', dataBoundaryPageAttr);
@@ -67,7 +66,6 @@ export function defineReactWebComponent({
 
         // Render after CSS loads
         link.addEventListener("load", () => this._render());
-        setTimeout(() => this._render(), 1000); // Fallback
       }
     }
 

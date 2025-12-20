@@ -3,6 +3,9 @@ import { defineReactWebComponent } from "@tractor-store/shared/react-webcomponen
 import { CartPage } from "../pages/CartPage";
 import { fetchData } from "@tractor-store/shared";
 
+const HOST = import.meta.env.VITE_HOST || 'http://localhost';
+const PORT = import.meta.env.VITE_PORT || '4003';
+
 const CartPageCe = () => {
   const [state, setState] = useState<any>({});
 
@@ -26,7 +29,11 @@ const CartPageCe = () => {
   return <CartPage {...state} handleDelete={handleDelete} />;
 };
 
-defineReactWebComponent({ component: CartPageCe, tag: "checkout-cart-page" });
+defineReactWebComponent({
+  component: CartPageCe,
+  cssHref: `${HOST}:${PORT}/css/index.css`,
+  tag: "checkout-cart-page"
+});
 
 const WebComponent = () => <checkout-cart-page></checkout-cart-page>;
 export default WebComponent;

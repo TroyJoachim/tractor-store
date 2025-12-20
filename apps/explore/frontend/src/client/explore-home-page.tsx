@@ -7,6 +7,9 @@ import { CategoryPageCe } from "./explore-category-page";
 import { StoresPageCe } from "./explore-stores-page";
 import { Layout } from "../components/Layout";
 
+const HOST = import.meta.env.VITE_HOST || 'http://localhost';
+const PORT = import.meta.env.VITE_PORT || '4001';
+
 const DecideProductPage = lazy(() => import("decide/decide-product-page"));
 const CheckoutCartPage = lazy(() => import("checkout/checkout-cart-page"));
 const CheckoutCheckoutPage = lazy(() => import("checkout/checkout-checkout-page"));
@@ -98,7 +101,11 @@ const ExploreWrapper = () => {
   );
 }
 
-defineReactWebComponent({ component: ExploreWrapper, tag: "explore-home-page", dataBoundaryPageAttr: "explore" });
+defineReactWebComponent({
+  component: ExploreWrapper,
+  cssHref: `${HOST}:${PORT}/css/index.css`,
+  tag: "explore-home-page", dataBoundaryPageAttr: "explore"
+});
 
 const WebComponent = () => <explore-home-page></explore-home-page>;
 export default WebComponent;

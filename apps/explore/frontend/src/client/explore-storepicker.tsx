@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { StorePicker } from "../components/StorePicker";
 import { fetchData } from "@tractor-store/shared";
 
+const HOST = import.meta.env.VITE_HOST || 'http://localhost';
+const PORT = import.meta.env.VITE_PORT || '4001';
+
 const StorePickerCe: React.FC = () => {
   const [state, setState] = useState<any>({});
 
@@ -18,7 +21,11 @@ const StorePickerCe: React.FC = () => {
 };
 
 // register storepicker as web component
-defineReactWebComponent({ component: StorePickerCe, tag: "explore-storepicker" });
+defineReactWebComponent({
+  component: StorePickerCe,
+  cssHref: `${HOST}:${PORT}/css/index.css`,
+  tag: "explore-storepicker"
+});
 
 const WebComponent = () => <explore-storepicker></explore-storepicker>;
 export default WebComponent;
