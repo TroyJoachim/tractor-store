@@ -59,7 +59,9 @@ export const ProductPage = ({
           <CheckoutAddToCart sku={variant.sku} />
         </div>
       </div>
-      <ExploreRecommendations skus={variant.sku} />
+      <div className="e_Recommendations">
+        <ExploreRecommendations skus={variant.sku} />
+      </div>
     </div>
   );
 };

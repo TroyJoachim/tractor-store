@@ -6,3 +6,10 @@
   font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
+
+.e_Recommendations {
+  height: 512px;
+  max-width: calc(1000px + var(--outer-space) * 2);
+  margin: 1rem auto 2rem;
+  align-items: center;
+}

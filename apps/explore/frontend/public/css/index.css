@@ -24,13 +24,14 @@
 }
 
 .e_Header {
-  height: 165.53px;
+  height: 166px;
   max-width: calc(1000px + var(--outer-space) * 2);
   margin: 1rem auto 0;
   align-items: center;
 }
 
 .e_Recommendations {
+  height: 480px;
   max-width: calc(1000px + var(--outer-space) * 2);
   margin: 1rem auto 2rem;
   align-items: center;
@@ -38,6 +39,7 @@
 
 
 .e_Footer {
+  height: 274px;
   max-width: calc(1000px + var(--outer-space) * 2);
   margin: 1rem auto 2rem;
   align-items: center;

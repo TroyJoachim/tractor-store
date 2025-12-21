@@ -30,9 +30,7 @@ export const HomePage = ({ teaser = [] }: Props) => {
           </Link>
         ))}
       </div>
-      <div className="e_Recommendations">
-        <RecommendationsCe skus={skus} />
-      </div>
+      <RecommendationsCe skus={skus} />
     </>
   );
 };

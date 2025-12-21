@@ -10,7 +10,7 @@ type Props = {
   recommendations?: RecommendationItem[];
 };
 
-const Recommendations= ({ recommendations = [] }: Props) => {
+const Recommendations = ({ recommendations = [] }: Props) => {
   return recommendations.length ? (
     <div className="e_Recommendations">
       <h2>Recommendations</h2>
