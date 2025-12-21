@@ -5,9 +5,9 @@ import path from "path";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
   const remoteDecideEntry =
-    env.REMOTE_DECIDE_URL || "http://localhost:4002/remote-entry.js";
+    env.REMOTE_DECIDE_URL || "http://localhost:4002/mf-manifest.json";
   const remoteCheckoutEntry =
-    env.REMOTE_CHECKOUT_URL || "http://localhost:4003/remote-entry.js";
+    env.REMOTE_CHECKOUT_URL || "http://localhost:4003/mf-manifest.json";
   const devOrigin = env.VITE_HOST && env.VITE_PORT
     ? `${env.VITE_HOST}:${env.VITE_PORT}`
     : "http://localhost:4001";
@@ -19,7 +19,6 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: "explore",
-        filename: "remote-entry.js",
         manifest: true,
         exposes: {
           "./explore-home-page": "./src/client/explore-home-page.tsx",

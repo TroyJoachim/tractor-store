@@ -6,7 +6,7 @@ import path from "path";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
   const remoteExploreEntry =
-    env.REMOTE_EXPLORE_URL || "http://localhost:4001/remote-entry.js";
+    env.REMOTE_EXPLORE_URL || "http://localhost:4001/mf-manifest.json";
   const devOrigin = env.VITE_HOST && env.VITE_PORT
     ? `${env.VITE_HOST}:${env.VITE_PORT}`
     : "http://localhost:4003";
@@ -18,7 +18,6 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: "checkout",
-        filename: "remote-entry.js",
         manifest: true,
         exposes: {
           "./checkout-add-to-cart": "./src/client/checkout-add-to-cart.tsx",

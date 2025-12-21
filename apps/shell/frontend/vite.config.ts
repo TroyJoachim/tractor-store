@@ -5,7 +5,7 @@ import { federation } from "@module-federation/vite";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
   const remoteExploreEntry =
-    env.REMOTE_EXPLORE_URL || "http://localhost:4001/remote-entry.js";
+    env.REMOTE_EXPLORE_URL || "http://localhost:4001/mf-manifest.json";
   const devOrigin = env.VITE_HOST && env.VITE_PORT
     ? `${env.VITE_HOST}:${env.VITE_PORT}`
     : "http://localhost:4000";
@@ -16,7 +16,6 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: "shell",
-        manifest: true,
         exposes: {},
         remotes: {
           explore: {
