@@ -1,5 +1,6 @@
 import { Filter } from "../components/Filter";
 import { Product } from "../components/Product";
+import css from "./CategoryPage.module.css";
 
 type Props = {
   title?: string;
@@ -11,11 +12,11 @@ export const CategoryPage = ({ title = "", products = [], filters = [] }: Props)
   return (
     <>
       <h2>{title}</h2>
-      <div className="e_CategoryPage__subline">
+      <div className={css.subline}>
         <p>{products.length} products</p>
         <Filter filters={filters} />
       </div>
-      <ul className="e_CategoryPage_list">
+      <ul className={css.list}>
         {products.map((p, i) => (
           <Product key={i} {...p} />
         ))}

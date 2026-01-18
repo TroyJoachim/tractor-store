@@ -9,9 +9,10 @@ export default defineConfig(({ mode }) => {
     env.REMOTE_EXPLORE_URL || "http://localhost:4001/mf-manifest.json";
   const remoteCheckoutEntry =
     env.REMOTE_CHECKOUT_URL || "http://localhost:4003/mf-manifest.json";
-  const devOrigin = env.VITE_HOST && env.VITE_PORT
-    ? `${env.VITE_HOST}:${env.VITE_PORT}`
-    : "http://localhost:4002";
+  const devOrigin =
+    env.VITE_HOST && env.VITE_PORT
+      ? `${env.VITE_HOST}:${env.VITE_PORT}`
+      : "http://localhost:4002";
   const devPort = Number(env.VITE_PORT) || 4002;
   const base = mode === "production" ? "http://localhost:3002/" : "/";
 
@@ -67,6 +68,18 @@ export default defineConfig(({ mode }) => {
       target: "esnext",
       modulePreload: {
         polyfill: false,
+      },
+      // Add all the CSS modules to a single file
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.names?.[0]?.endsWith(".css")) {
+              return "assets/decide.css";
+            }
+            return "assets/[name]-[hash][extname]";
+          },
+        },
       },
     },
     server: {

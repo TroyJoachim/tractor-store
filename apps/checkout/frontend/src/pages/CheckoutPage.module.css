@@ -1,21 +1,30 @@
-.ch_CheckoutPage {
-  padding: 1rem;
+:global(:host),
+:global(checkout-checkout-page) {
+  --outer-space: 1.5rem;
+  font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
-.ch_CheckoutPage fieldset {
+.root {
+  margin: 0 auto;
+  max-width: calc(1000px + var(--outer-space) * 2);
+  padding: var(--outer-space);
+}
+
+.root fieldset {
   border: 0;
   border-bottom: 2px solid black;
   padding: 0 0 2rem;
   margin: 0;
 }
 
-.ch_CheckoutPage__name {
+.name {
   display: flex;
   gap: 0 4rem;
   flex-wrap: wrap;
 }
 
-.ch_CheckoutPage__buttons {
+.buttons {
   margin: 3rem 0 4rem;
   display: flex;
   flex-wrap: wrap;
@@ -24,16 +33,16 @@
   flex-direction: row-reverse;
 }
 
-.ch_CheckoutPage__buttons > * {
+.buttons > * {
   flex: 0;
 }
 
-.ch_CheckoutPage__label {
+.label {
   width: 100px;
   display: inline-block;
 }
 
-.ch_CheckoutPage__input {
+.input {
   height: 40px;
   padding: 5px 10px;
   font-size: 16px;
@@ -43,6 +52,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) inset;
 }
 
-.ch_CheckoutPage__input:read-only {
+.input:read-only {
   background-color: rgba(0, 0, 0, 0.05);
 }

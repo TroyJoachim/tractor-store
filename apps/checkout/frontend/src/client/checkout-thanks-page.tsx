@@ -1,8 +1,8 @@
 import { defineReactWebComponent } from "@tractor-store/shared/react-webcomponent";
-import ThanksPage from "../pages/ThanksPage";
+import { ThanksPage } from "../pages/ThanksPage";
 
-const HOST = import.meta.env.VITE_HOST || 'http://localhost';
-const PORT = import.meta.env.VITE_PORT || '4001';
+const HOST = import.meta.env.VITE_HOST || "http://localhost";
+const PORT = import.meta.env.VITE_PORT || "4001";
 
 const ThanksPageCe = () => {
   console.log("checkout-thanks-page hydrated");
@@ -11,8 +11,8 @@ const ThanksPageCe = () => {
 
 defineReactWebComponent({
   component: ThanksPageCe,
-  cssHref: `${HOST}:${PORT}/css/index.css`,
-  tag: "checkout-thanks-page"
+  css: `${HOST}:${PORT}/assets/checkout.css`,
+  tag: "checkout-thanks-page",
 });
 
 const WebComponent = () => <checkout-thanks-page></checkout-thanks-page>;

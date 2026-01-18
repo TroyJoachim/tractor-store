@@ -1,11 +1,11 @@
-.e_Filter {
+.filter {
   display: flex;
   justify-content: flex-end;
   margin-bottom: var(--outer-space);
   gap: 1rem;
 }
 
-.e_Filter ul {
+.filter ul {
   display: flex;
   list-style: none;
   gap: 0.8rem;
@@ -13,17 +13,17 @@
   margin: 0;
 }
 
-.e_Filter li {
+.filter li {
   position: relative;
 }
 
-.e_Filter a {
+.filter a {
   color: inherit;
   text-decoration: none;
 }
 
-.e_Filter__filter--active::before,
-.e_Filter a:hover::before {
+.active::before,
+.filter a:hover::before {
   content: "";
   display: block;
   width: 100%;
@@ -32,10 +32,10 @@
   position: absolute;
 }
 
-.e_Filter__filter--active::before {
+.active::before {
   background-color: black;
 }
 
-.e_Filter a:hover::before {
+.filter a:hover::before {
   background-color: #ff5a55;
 }

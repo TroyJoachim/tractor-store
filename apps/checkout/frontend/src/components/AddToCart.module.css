@@ -1,37 +1,36 @@
-.ch_AddToCart {
+.root {
   padding: 1rem;
-  margin: 0 0 1rem;
 }
 
-.ch_AddToCart__information {
+.information {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.ch_AddToCart__stock {
+.stock {
   display: block;
 }
 
-.ch_AddToCart__stockOk {
+.stockOk {
   color: green;
 }
 
-.ch_AddToCart__stockEmpty {
+.stockEmpty {
   color: red;
 }
 
-.ch_AddToCart__confirmed {
+.confirmed {
   display: flex;
   align-items: baseline;
   gap: 0.75ch;
 }
 
-.ch_AddToCart__confirmed a {
+.confirmed a {
   color: inherit;
 }
 
-.ch_AddToCart__confirmedHidden {
+.confirmedHidden {
   visibility: hidden;
 }

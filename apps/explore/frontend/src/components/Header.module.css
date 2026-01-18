@@ -1,4 +1,11 @@
-.e_Header__cutter {
+.header {
+  height: 166px;
+  max-width: calc(1000px + var(--outer-space) * 2);
+  margin: 1rem auto 0;
+  align-items: center;
+}
+
+.cutter {
   @media (min-width: 1100px) {
     margin: 0 calc(var(--outer-space) * -1);
   }
@@ -6,7 +13,7 @@
   padding: 0 0 30px;
 }
 
-.e_Header__inner {
+.inner {
   @media (max-width: 999px) {
     display: grid;
     grid-template:
@@ -37,8 +44,8 @@
   flex: 1;
 }
 
-.e_Header__inner::before,
-.e_Header__inner::after {
+.inner::before,
+.inner::after {
   position: absolute;
   top: 0;
   width: 48px;
@@ -46,28 +53,28 @@
 }
 
 @media (min-width: 1000px) {
-  .e_Header__inner::before,
-  .e_Header__inner::after {
+  .inner::before,
+  .inner::after {
     content: "";
     display: block;
   }
 }
 
 @media (max-width: 1099px) {
-  .e_Header__inner::before,
-  .e_Header__inner::after {
+  .inner::before,
+  .inner::after {
     width: var(--outer-space);
   }
 }
 
 @media (min-width: 1100px) {
-  .e_Header__inner::before,
-  .e_Header__inner::after {
+  .inner::before,
+  .inner::after {
     width: calc(var(--outer-space) * 2);
   }
 }
 
-.e_Header__inner::before {
+.inner::before {
   left: 0;
   background: linear-gradient(
     90deg,
@@ -77,12 +84,12 @@
 }
 
 @media (min-width: 1100px) {
-  .e_Header__inner::before {
+  .inner::before {
     left: calc(var(--outer-space) * -1);
   }
 }
 
-.e_Header__inner::after {
+.inner::after {
   right: 0;
   background: linear-gradient(
     -90deg,
@@ -92,12 +99,12 @@
 }
 
 @media (min-width: 1100px) {
-  .e_Header__inner::after {
+  .inner::after {
     right: calc(var(--outer-space) * -1);
   }
 }
 
-.e_Header__logo {
+.logo {
   @media (max-width: 499px) {
     width: 170px;
   }
@@ -105,24 +112,23 @@
   @media (min-width: 500px) {
     width: 270px;
   }
-  aspect-ratio: 3.5;
   display: block;
 }
 
-.e_Header__link {
+.link {
   grid-area: logo;
   display: flex;
   margin-left: var(--outer-space);
   align-items: center;
 }
 
-.e_Header__cart {
+.cart {
   grid-area: mini-cart;
   display: flex;
   justify-content: flex-end;
 }
 
-.e_Header__navigation {
+.navigation {
   @media (max-width: 999px) {
     margin-bottom: 1rem;
   }

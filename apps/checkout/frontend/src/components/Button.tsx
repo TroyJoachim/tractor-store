@@ -1,7 +1,8 @@
 import { navigate } from "@tractor-store/shared";
 import React from "react";
+import css from "./Button.module.css";
 
-interface ButtonProps {
+interface Props {
   href?: string;
   type?: "button" | "submit" | "reset";
   value?: string;
@@ -16,7 +17,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   href,
   type,
   value,
@@ -30,23 +31,23 @@ const Button: React.FC<ButtonProps> = ({
   title,
   onClick,
   ...rest
-}) => {
+}: Props) => {
   const Tag = href ? "a" : "button";
   const classes = [
-    "ch_Button",
-    `ch_Button--${variant}`,
-    `ch_Button--${size}`,
-    rounded ? "ch_Button--rounded" : "",
+    css.root,
+    css[variant],
     extraClass,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    rounded ? css.rounded : "",
+    css[size],
+  ].join(" ");
 
   const props: any = {
     className: classes,
     "data-id": dataId,
     title,
-    onClick: href ? (e: React.MouseEvent<HTMLAnchorElement>) => navigate(href, e) : onClick,
+    onClick: href
+      ? (e: React.MouseEvent<HTMLAnchorElement>) => navigate(href, e)
+      : onClick,
     ...rest,
   };
 
@@ -60,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <Tag {...props}>
-      <div className="ch_Button__inner">{children}</div>
+      <div className={css.inner}>{children}</div>
     </Tag>
   );
 };

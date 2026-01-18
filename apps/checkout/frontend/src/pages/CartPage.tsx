@@ -1,7 +1,8 @@
 import { fmtprice } from "../utils";
 import Button from "../components/Button";
-import LineItem from "../components/LineItem";
+import { LineItem } from "../components/LineItem";
 import ExploreRecommendations from "explore/explore-recommendations";
+import css from "./CartPage.module.css";
 
 interface LineItemData {
   sku: string;
@@ -12,7 +13,7 @@ interface LineItemData {
   image: string;
 }
 
-interface CartPageProps {
+interface Props {
   lineItems?: LineItemData[];
   total?: number;
   skus?: string[];
@@ -23,19 +24,19 @@ export const CartPage = ({
   lineItems = [],
   total = 0,
   skus = [],
-  handleDelete = () => { },
-}: CartPageProps) => {
+  handleDelete = () => {},
+}: Props) => {
   return (
-    <div className="ch_CartPage" data-boundary="checkout">
+    <div className={css.root} data-boundary="checkout">
       <h2>Shopping Cart</h2>
-      <ul className="ch_CartPage__lineItems">
+      <ul className={css.lineItems}>
         {lineItems.map((l) => (
           <LineItem key={l.sku} {...l} handleDelete={handleDelete} />
         ))}
       </ul>
       <hr />
-      <p className="ch_CartPage__total">Total: {fmtprice(total)}</p>
-      <div className="ch_CartPage__buttons">
+      <p className={css.total}>Total: {fmtprice(total)}</p>
+      <div className={css.buttons}>
         <Button href="/checkout/checkout" variant="primary">
           Checkout
         </Button>

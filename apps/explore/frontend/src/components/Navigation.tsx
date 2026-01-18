@@ -1,19 +1,17 @@
-import React from "react";
 import { Link } from "react-router";
+import css from "./Navigation.module.css";
 
-const Navigation: React.FC = () => {
+export const Navigation = () => {
   return (
-    <nav className="e_Navigation">
-      <ul className="e_Navigation__list">
-        <li className="e_Navigation__item">
+    <nav className={css.navigation}>
+      <ul className={css.list}>
+        <li className={css.item}>
           <Link to="/products">Machines</Link>
         </li>
-        <li className="e_Navigation__item">
+        <li className={css.item}>
           <Link to="/stores">Stores</Link>
         </li>
       </ul>
     </nav>
   );
 };
-
-export default Navigation;

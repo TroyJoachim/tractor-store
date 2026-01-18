@@ -1,4 +1,5 @@
-import Recommendation from "./Recommendation";
+import { Recommendation } from "./Recommendation";
+import css from "./Recommendations.module.css";
 
 type RecommendationItem = {
   image?: string;
@@ -10,15 +11,15 @@ type Props = {
   recommendations?: RecommendationItem[];
 };
 
-const Recommendations = ({ recommendations = [] }: Props) => {
+export const Recommendations = ({ recommendations = [] }: Props) => {
   return recommendations.length ? (
-    <div className="e_Recommendations">
+    <div className={css.recommendations}>
       <h2>Recommendations</h2>
-      <ul className="e_Recommendations_list">{recommendations.map((r, i) => (
-        <Recommendation key={i} image={r.image} url={r.url} name={r.name} />
-      ))}</ul>
+      <ul className={css.list}>
+        {recommendations.map((r, i) => (
+          <Recommendation key={i} image={r.image} url={r.url} name={r.name} />
+        ))}
+      </ul>
     </div>
   ) : null;
 };
-
-export default Recommendations;

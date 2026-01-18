@@ -1,19 +1,19 @@
-import React from "react";
 import { src, srcset } from "../utils";
 import { Navigate } from "@tractor-store/shared";
+import css from "./Recommendation.module.css";
 
-interface RecommendationProps {
+interface Props {
   image: string;
   url: string;
   name: string;
 }
 
-const Recommendation: React.FC<RecommendationProps> = ({ image, url, name }) => {
+export const Recommendation = ({ image, url, name }: Props) => {
   return (
-    <li className="ch_Recommendation">
-      <Navigate className="ch_Recommendation__link" path={url}>
+    <li className={css.root}>
+      <Navigate className={css.link} path={url}>
         <img
-          className="ch_Recommendation__image"
+          className={css.image}
           src={src(image, 200)}
           srcSet={srcset(image, [200, 400])}
           sizes="200px"
@@ -21,10 +21,8 @@ const Recommendation: React.FC<RecommendationProps> = ({ image, url, name }) => 
           height="200"
           alt={name}
         />
-        <span className="ch_Recommendation__name">{name}</span>
+        <span className={css.name}>{name}</span>
       </Navigate>
     </li>
   );
 };
-
-export default Recommendation;

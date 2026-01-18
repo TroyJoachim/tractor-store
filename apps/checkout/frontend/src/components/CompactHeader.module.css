@@ -1,4 +1,4 @@
-.ch_CompactHeader {
+.root {
   height: 135px;
   display: flex;
   margin: 0 0 2rem;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.ch_CompactHeader__inner {
+.inner {
   display: flex;
   max-width: calc(1000px + (2 * var(--outer-space)));
   padding: 0 var(--outer-space);
@@ -16,7 +16,7 @@
   flex: 1;
 }
 
-.ch_CompactHeader__logo {
+.logo {
   display: block;
   width: 270px;
 }

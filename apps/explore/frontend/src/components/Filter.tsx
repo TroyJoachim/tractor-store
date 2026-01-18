@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import css from "./Filter.module.css";
 
 type FilterItem = {
   name: string;
@@ -6,20 +7,18 @@ type FilterItem = {
   active?: boolean;
 };
 
-type FilterProps = {
+type Props = {
   filters: FilterItem[];
 };
 
-export const Filter = ({ filters }: FilterProps) => {
+export const Filter = ({ filters }: Props) => {
   return (
-    <div className="e_Filter">
+    <div className={css.filter}>
       Filter:
       <ul>
         {filters.map((f, i) =>
           f.active ? (
-            <li key={i} className="e_Filter__filter--active">
-              {f.name}
-            </li>
+            <li className={css.active}>{f.name}</li>
           ) : (
             <li key={i}>
               <Link to={f.url ?? ""}>{f.name}</Link>
@@ -27,6 +26,6 @@ export const Filter = ({ filters }: FilterProps) => {
           )
         )}
       </ul>
-    </div>
+    </div >
   );
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { StoresPage } from "../pages/StoresPage";
 import { fetchData } from "@tractor-store/shared";
 
-export const StoresPageCe: React.FC = () => {
+export const StoresPageCe = () => {
   const [state, setState] = useState<any>({});
 
   useEffect(() => {

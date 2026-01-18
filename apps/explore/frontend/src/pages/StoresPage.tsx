@@ -1,4 +1,5 @@
-import Store from "../components/Store";
+import { Store } from "../components/Store";
+import css from "./StoresPage.module.css";
 
 type Props = {
   stores?: any[];
@@ -13,7 +14,7 @@ export const StoresPage = ({ stores = [] }: Props) => {
         products up close and talk to our experts. We have stores in the
         following locations:
       </p>
-      <ul className="e_StoresPage_list">
+      <ul className={css.list}>
         {stores.map((s, i) => (
           <Store key={i} {...s} />
         ))}

@@ -2,8 +2,9 @@ import React from "react";
 import { src, srcset, fmtprice } from "../utils";
 import Button from "./Button";
 import { Navigate } from "@tractor-store/shared";
+import css from "./LineItem.module.css";
 
-interface LineItemProps {
+interface Props {
   sku: string;
   id: string;
   name: string;
@@ -13,7 +14,7 @@ interface LineItemProps {
   handleDelete?: (sku: string) => void;
 }
 
-const LineItem: React.FC<LineItemProps> = ({
+export const LineItem = ({
   sku,
   id,
   name,
@@ -21,7 +22,7 @@ const LineItem: React.FC<LineItemProps> = ({
   total,
   image,
   handleDelete,
-}) => {
+}: Props) => {
   const url = `/product/${id}?sku=${sku}`;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,8 +33,8 @@ const LineItem: React.FC<LineItemProps> = ({
   };
 
   return (
-    <li className="ch_LineItem">
-      <Navigate className="ch_LineItem__image" path={url}>
+    <li className={css.root}>
+      <Navigate className={css.image} path={url}>
         <img
           src={src(image, 200)}
           srcSet={srcset(image, [200, 400])}
@@ -43,14 +44,14 @@ const LineItem: React.FC<LineItemProps> = ({
           height="200"
         />
       </Navigate>
-      <div className="ch_LineItem__details">
-        <Navigate className="ch_LineItem__name" path={url}>
+      <div className={css.details}>
+        <Navigate className={css.name} path={url}>
           <strong>{name}</strong>
           <br />
           {sku}
         </Navigate>
 
-        <div className="ch_LineItem__quantity">
+        <div className={css.quantity}>
           <span>{quantity}</span>
 
           <form
@@ -82,10 +83,8 @@ const LineItem: React.FC<LineItemProps> = ({
             </Button>
           </form>
         </div>
-        <div className="ch_LineItem__price">{fmtprice(total)}</div>
+        <div className={css.price}>{fmtprice(total)}</div>
       </div>
     </li>
   );
 };
-
-export default LineItem;

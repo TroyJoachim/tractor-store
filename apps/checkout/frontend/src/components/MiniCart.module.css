@@ -1,10 +1,9 @@
-.ch_MiniCart {
+.root {
   position: relative;
   margin-right: 1.5rem;
-  padding: 1.5rem;
 }
 
-.ch_MiniCart__quantity {
+.quantity {
   background-color: #ff5a55;
   border-radius: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
@@ -25,16 +24,16 @@
   transition: all 0.3s;
 }
 
-.ch_MiniCart svg {
+.root svg {
   --minicart-translate: -2px;
   transform: translateY(var(--minicart-translate));
 }
 
-.ch_MiniCart__quantity:empty {
+.quantity:empty {
   transform: scale(0);
 }
 
-@keyframes ch_bounce {
+@keyframes bounce {
   0% {
     transform: translateY(calc(var(--minicart-translate) + 0px));
   }
@@ -46,11 +45,11 @@
   }
 }
 
-.ch_MiniCart--highlight svg {
-  animation: ch_bounce 0.2s ease-out;
+.highlight svg {
+  animation: bounce 0.2s ease-out;
 }
 
-@keyframes ch_shake {
+@keyframes shake {
   0% {
     transform: rotate(0deg);
   }
@@ -62,7 +61,10 @@
   }
 }
 
-.ch_MiniCart--highlight svg g {
+.highlight svg g {
   transform-origin: center 7px;
-  animation: ch_shake 0.2s infinite ease-in-out;
+  animation: shake 0.2s infinite ease-in-out;
+}
+.root {
+  padding: 1.5rem;
 }

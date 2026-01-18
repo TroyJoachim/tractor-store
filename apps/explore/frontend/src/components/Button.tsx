@@ -1,6 +1,7 @@
 import React from "react";
+import css from "./Button.module.css";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> &
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href?: string;
     extraClass?: string;
@@ -10,7 +11,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     dataId?: string;
   };
 
-const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   href,
   type,
   value,
@@ -23,27 +24,25 @@ const Button: React.FC<ButtonProps> = ({
   variant = "secondary",
   title,
   ...rest
-}) => {
+}: Props) => {
   const Tag: any = href ? "a" : "button";
   return (
     <Tag
-      {...(Tag === "button" ? { type } : {})}
-      {...rest}
       aria-disabled={disabled}
       href={href}
+      type={type}
       data-id={dataId}
       title={title}
       className={[
-        "e_Button",
-        `e_Button--${variant}`,
+        css.root,
+        css[variant],
         extraClass,
-        rounded ? "e_Button--rounded" : "",
-        size !== "normal" ? `e_Button--${size}` : "",
+        rounded ? css.rounded : "",
+        css[size],
       ].join(" ")}
+      {...rest}
     >
-      <div className="e_Button__inner">{children}</div>
+      <div className={css.inner}>{children}</div>
     </Tag>
   );
 };
-
-export default Button;

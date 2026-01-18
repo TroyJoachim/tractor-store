@@ -1,4 +1,4 @@
-.ch_LineItem {
+.root {
   display: flex;
   margin-bottom: 2rem;
   flex-wrap: wrap;
@@ -6,12 +6,12 @@
   align-items: center;
 }
 
-.ch_LineItem__image {
+.image {
   flex-basis: 150px;
   padding-right: 2rem;
 }
 
-.ch_LineItem__image img {
+.image img {
   display: block;
   aspect-ratio: 1 / 1;
   width: 100%;
@@ -19,7 +19,7 @@
   object-fit: contain;
 }
 
-.ch_LineItem__details {
+.details {
   flex-grow: 1;
   display: flex;
   gap: 1rem;
@@ -28,7 +28,7 @@
   justify-content: flex-end;
 }
 
-.ch_LineItem__name {
+.name {
   padding-right: 2rem;
   flex-grow: 1;
   color: inherit;
@@ -36,17 +36,17 @@
   min-width: 300px;
 }
 
-.ch_LineItem__quantity {
+.quantity {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.ch_LineItem__price {
+.price {
   flex-basis: 100px;
   text-align: end;
 }
 
-.ch_LineItem__removeIcon {
+.removeIcon {
   width: 33px;
 }

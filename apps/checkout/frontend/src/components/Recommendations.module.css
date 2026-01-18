@@ -1,9 +1,9 @@
-.ch_Recommendations {
+.recommendations {
   padding: 1rem;
-  margin: 0 0 3rem;
+  margin: 0 -1rem 3rem;
 }
 
-.ch_Recommendations__list {
+.list {
   @media (max-width: 499px) {
     grid-template-columns: 1fr 1fr;
   }

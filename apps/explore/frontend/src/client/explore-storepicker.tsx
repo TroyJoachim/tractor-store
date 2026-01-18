@@ -6,7 +6,7 @@ import { fetchData } from "@tractor-store/shared";
 const HOST = import.meta.env.VITE_HOST || 'http://localhost';
 const PORT = import.meta.env.VITE_PORT || '4001';
 
-const StorePickerCe: React.FC = () => {
+const StorePickerCe = () => {
   const [state, setState] = useState<any>({});
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const StorePickerCe: React.FC = () => {
 // register storepicker as web component
 defineReactWebComponent({
   component: StorePickerCe,
-  cssHref: `${HOST}:${PORT}/css/index.css`,
+  css: `${HOST}:${PORT}/assets/explore.css`,
   tag: "explore-storepicker"
 });
 

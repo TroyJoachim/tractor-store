@@ -1,7 +1,8 @@
 import { Navigate } from "@tractor-store/shared";
 import React from "react";
+import css from "./VariantOption.module.css";
 
-interface VariantOptionProps {
+interface Props {
   id: string;
   sku: string;
   name: string;
@@ -9,17 +10,14 @@ interface VariantOptionProps {
   color: string;
 }
 
-const VariantOption: React.FC<VariantOptionProps> = ({
-  id,
-  sku,
-  name,
-  selected,
-  color,
-}) => {
+const VariantOption = ({ id, sku, name, selected, color }: Props) => {
   const link = selected ? null : `/product/${id}?sku=${sku}`;
   return (
-    <li className="de_VariantOption" style={{ "--variant-color": color } as React.CSSProperties}>
-      <i className="de_VariantOption__color"></i>
+    <li
+      className={css.root}
+      style={{ "--variant-color": color } as React.CSSProperties}
+    >
+      <i className={css.color}></i>
       {link ? <Navigate path={link}>{name}</Navigate> : <strong>{name}</strong>}
     </li>
   );

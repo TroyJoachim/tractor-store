@@ -1,26 +1,26 @@
-.e_Recommendation {
+.recommendation {
   margin: 0;
 }
 
 @media (min-width: 500px) and (max-width: 999px) {
-  .e_Recommendation:nth-child(4) {
+  .recommendation:nth-child(4) {
     display: none;
   }
 }
 
-.e_Recommendation_link {
+.link {
   text-decoration: none;
   color: black;
 }
 
-.e_Recommendation_image {
+.image {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
   display: block;
 }
 
-.e_Recommendation_name {
+.name {
   margin: 1rem 0;
   color: black;
   text-align: center;

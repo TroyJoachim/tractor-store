@@ -2,16 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { fetchData } from "@tractor-store/shared";
 import Button from "../components/Button";
 import ExploreStorePicker from "explore/explore-storepicker";
+import css from "./CheckoutPage.module.css";
 
 const STORE_PICKER_EVENT = "explore:store-selected";
 
-interface CheckoutPageProps {
+interface Props {
   onPlaceOrder?: () => void;
 }
 
-export const CheckoutPage = ({
-  onPlaceOrder,
-}: CheckoutPageProps) => {
+export const CheckoutPage = ({ onPlaceOrder }: Props) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [storeId, setStoreId] = useState("");
@@ -30,10 +29,7 @@ export const CheckoutPage = ({
 
     const $el = storePickerRef.current;
     if ($el) {
-      $el.addEventListener(
-        STORE_PICKER_EVENT,
-        handleEvent as EventListener
-      );
+      $el.addEventListener(STORE_PICKER_EVENT, handleEvent as EventListener);
     }
 
     // cleanup
@@ -55,27 +51,33 @@ export const CheckoutPage = ({
     if (onPlaceOrder) {
       onPlaceOrder();
     } else {
-      document.dispatchEvent(new CustomEvent('shell:navigate', { detail: { path: '/checkout/thanks' }, bubbles: true, composed: true }));
+      document.dispatchEvent(
+        new CustomEvent("shell:navigate", {
+          detail: { path: "/checkout/thanks" },
+          bubbles: true,
+          composed: true,
+        })
+      );
     }
   };
 
   return (
-    <div className="ch_CheckoutPage" data-boundary="checkout">
+    <div className={css.root} data-boundary="checkout">
       <h2>Checkout</h2>
       <form
         action="/checkout/api/placeorder"
         method="post"
-        className="ch_CheckoutPage__form"
+        className={css.form}
         onSubmit={handleSubmit}
       >
         <h3>Personal Data</h3>
-        <fieldset className="ch_CheckoutPage__name">
+        <fieldset className={css.name}>
           <div>
-            <label className="ch_CheckoutPage__label" htmlFor="c_firstname">
+            <label className={css.label} htmlFor="c_firstname">
               First name
             </label>
             <input
-              className="ch_CheckoutPage__input"
+              className={css.input}
               type="text"
               id="c_firstname"
               name="firstname"
@@ -85,11 +87,11 @@ export const CheckoutPage = ({
             />
           </div>
           <div>
-            <label className="ch_CheckoutPage__label" htmlFor="c_lastname">
+            <label className={css.label} htmlFor="c_lastname">
               Last name
             </label>
             <input
-              className="ch_CheckoutPage__input"
+              className={css.input}
               type="text"
               id="c_lastname"
               name="lastname"
@@ -102,14 +104,14 @@ export const CheckoutPage = ({
 
         <h3>Store Pickup</h3>
         <fieldset>
-          <div className="ch_CheckoutPage__store" ref={storePickerRef}>
+          <div className={css.store} ref={storePickerRef}>
             <ExploreStorePicker />
           </div>
-          <label className="ch_CheckoutPage__label" htmlFor="c_storeId">
+          <label className={css.label} htmlFor="c_storeId">
             Store ID
           </label>
           <input
-            className="ch_CheckoutPage__input"
+            className={css.input}
             type="text"
             id="c_storeId"
             name="storeId"
@@ -119,7 +121,7 @@ export const CheckoutPage = ({
           />
         </fieldset>
 
-        <div className="ch_CheckoutPage__buttons">
+        <div className={css.buttons}>
           <Button type="submit" variant="primary" disabled={isButtonDisabled}>
             Place Order
           </Button>

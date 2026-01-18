@@ -1,12 +1,12 @@
-import React from "react";
 import { IMAGE_SERVER } from "../utils";
+import css from "./Footer.module.css";
 
-const Footer: React.FC = () => {
+export const Footer = () => {
   return (
-    <footer className="e_Footer">
-      <div className="e_Footer__cutter">
-        <div className="e_Footer__inner">
-          <div className="e_Footer__initiative">
+    <footer className={css.footer}>
+      <div className={css.cutter}>
+        <div className={css.inner}>
+          <div className={css.initiative}>
             {/* please leave this part untouched */}
             <img
               src={`${IMAGE_SERVER}/cdn/img/neulandlogo.svg`}
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="e_Footer__credits">
+          <div className={css.credits}>
             {/* replace this details about your implementation and organization */}
             <h4>techstack</h4>
             <p>
@@ -50,5 +50,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;

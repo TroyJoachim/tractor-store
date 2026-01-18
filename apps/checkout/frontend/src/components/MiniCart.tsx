@@ -1,22 +1,19 @@
-import React from "react";
 import Button from "./Button";
+import css from "./MiniCart.module.css";
 
-interface MiniCartProps {
+interface Props {
   quantity?: number;
   highlight?: boolean;
 }
 
-const MiniCart: React.FC<MiniCartProps> & { api: string } = ({
-  quantity,
-  highlight,
-}) => {
+export const MiniCart = ({ quantity, highlight }: Props) => {
   return (
     <div
-      className={`ch_MiniCart ${highlight ? "ch_MiniCart--highlight" : ""}`}
+      className={`${css.root} ${highlight ? css.highlight : ""}`}
       data-boundary="checkout"
     >
       <Button
-        extraClass="ch_MiniCart__button"
+        extraClass={css.button}
         variant="secondary"
         rounded
         href="/checkout/cart"
@@ -40,12 +37,8 @@ const MiniCart: React.FC<MiniCartProps> & { api: string } = ({
             </clipPath>
           </defs>
         </svg>
-        <div className="ch_MiniCart__quantity">{quantity || ""}</div>
+        <div className={css.quantity}>{quantity || ""}</div>
       </Button>
     </div>
   );
 };
-
-MiniCart.api = "/minicart";
-
-export default MiniCart;

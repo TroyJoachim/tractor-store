@@ -3,8 +3,8 @@ import { defineReactWebComponent } from "@tractor-store/shared/react-webcomponen
 import { AddToCart } from "../components/AddToCart";
 import { fetchData } from "@tractor-store/shared";
 
-const HOST = import.meta.env.VITE_HOST || 'http://localhost';
-const PORT = import.meta.env.VITE_PORT || '4003';
+const HOST = import.meta.env.VITE_HOST || "http://localhost";
+const PORT = import.meta.env.VITE_PORT || "4003";
 
 interface AddToCartCeProps {
   sku?: string;
@@ -40,12 +40,14 @@ const AddToCartCe = ({ sku }: AddToCartCeProps) => {
 
 defineReactWebComponent({
   component: AddToCartCe,
-  cssHref: `${HOST}:${PORT}/css/index.css`,
+  css: `${HOST}:${PORT}/assets/checkout.css`,
   tag: "checkout-add-to-cart",
-  observedAttrs: ["sku"]
+  observedAttrs: ["sku"],
 });
 
-const WebComponent = ({ sku }: { sku: string }) => <checkout-add-to-cart sku={sku}></checkout-add-to-cart>;
+const WebComponent = ({ sku }: { sku: string }) => (
+  <checkout-add-to-cart sku={sku}></checkout-add-to-cart>
+);
 export default WebComponent;
 
 console.log("checkout-add-to-cart bundle loaded");

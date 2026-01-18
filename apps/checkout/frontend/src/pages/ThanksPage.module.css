@@ -1,0 +1,22 @@
+:global(:host),
+:global(checkout-thanks-page) {
+  --outer-space: 1.5rem;
+  font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.root {
+  margin: 0 auto;
+  max-width: calc(500px + var(--outer-space) * 2);
+  padding: var(--outer-space);
+  min-height: 50vh;
+}
+
+.title {
+  margin: 4rem 0;
+  font-size: 40px;
+}
+
+.text {
+  margin: 4rem 0;
+}

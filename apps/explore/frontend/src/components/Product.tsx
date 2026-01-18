@@ -1,27 +1,28 @@
 import { Link } from "react-router";
 import { src, srcset, fmtprice } from "../utils";
+import css from "./Product.module.css";
 
-type ProductProps = {
+type Props = {
   name: string;
   url: string;
   image: string;
   startPrice: number;
 };
 
-export const Product = ({ name, url, image, startPrice }: ProductProps) => {
+export const Product = ({ name, url, image, startPrice }: Props) => {
   return (
-    <li className="e_Product">
-      <Link className="e_Product_link" to={url}>
+    <li className={css.product}>
+      <Link className={css.link} to={url}>
         <img
-          className="e_Product_image"
+          className={css.image}
           src={src(image, 200)}
           srcSet={srcset(image, [200, 400, 800])}
           sizes="300px"
           width={200}
           height={200}
         />
-        <span className="e_Product_name">{name}</span>
-        <span className="e_Product_price">{fmtprice(startPrice)}</span>
+        <span className={css.name}>{name}</span>
+        <span className={css.price}>{fmtprice(startPrice)}</span>
       </Link>
     </li>
   );

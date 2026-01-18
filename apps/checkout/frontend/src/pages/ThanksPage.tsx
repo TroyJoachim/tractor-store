@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import confetti from "canvas-confetti";
 import Button from "../components/Button";
+import css from "./ThanksPage.module.css";
 
-const ThanksPage: React.FC & { api: null } = () => {
+export const ThanksPage = () => {
   useEffect(() => {
     const end = Date.now() + 1000;
 
@@ -34,18 +35,12 @@ const ThanksPage: React.FC & { api: null } = () => {
   }, []);
 
   return (
-    <div className="ch_ThanksPage" data-boundary="checkout">
-      <h2 className="ch_ThanksPage__title">Thanks for your order!</h2>
-      <p className="ch_ThanksPage__text">
-        We'll notify you, when its ready for pickup.
-      </p>
+    <div className={css.root} data-boundary="checkout">
+      <h2 className={css.title}>Thanks for your order!</h2>
+      <p className={css.text}>We'll notify you, when its ready for pickup.</p>
       <Button href="/" variant="secondary">
         Continue Shopping
       </Button>
     </div>
   );
 };
-
-ThanksPage.api = null;
-
-export default ThanksPage;

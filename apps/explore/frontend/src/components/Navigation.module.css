@@ -1,8 +1,8 @@
-.e_Navigation {
+.navigation {
   flex-grow: 1;
 }
 
-.e_Navigation__list {
+.list {
   display: flex;
   list-style: none;
   padding: 0;
@@ -11,7 +11,7 @@
   gap: 2rem;
 }
 
-.e_Navigation__item a {
+.item a {
   position: relative;
   display: block;
   padding: 5px 20px;
@@ -24,13 +24,13 @@
   border-bottom: 1px solid #eeebe2;
 }
 
-.e_Navigation__item:hover a,
-.e_Navigation__item:focus a {
+.item:hover a,
+.item:focus a {
   border-bottom-color: #757165;
 }
 
-.e_Navigation__item a::before,
-.e_Navigation__item a::after {
+.item a::before,
+.item a::after {
   display: block;
   content: "";
   position: absolute;
@@ -39,7 +39,7 @@
   top: 0;
 }
 
-.e_Navigation__item a::before {
+.item a::before {
   left: 0;
   background: linear-gradient(
     -90deg,
@@ -48,7 +48,7 @@
   );
 }
 
-.e_Navigation__item a::after {
+.item a::after {
   right: 0;
   background: linear-gradient(
     90deg,

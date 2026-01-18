@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { federation } from "@module-federation/vite";
 import path from "path";
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
   const remoteDecideEntry =
@@ -68,6 +69,18 @@ export default defineConfig(({ mode }) => {
       target: "esnext",
       modulePreload: {
         polyfill: false,
+      },
+      // Add all the CSS modules to a single file
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.names?.[0]?.endsWith('.css')) {
+              return 'assets/explore.css';
+            }
+            return 'assets/[name]-[hash][extname]';
+          },
+        },
       },
     },
     server: {

@@ -103,8 +103,9 @@ const ExploreWrapper = () => {
 
 defineReactWebComponent({
   component: ExploreWrapper,
-  cssHref: `${HOST}:${PORT}/css/index.css`,
-  tag: "explore-home-page", dataBoundaryPageAttr: "explore"
+  css: `${HOST}:${PORT}/assets/explore.css`,
+  tag: "explore-home-page",
+  dataBoundaryPageAttr: "explore"
 });
 
 const WebComponent = () => <explore-home-page></explore-home-page>;

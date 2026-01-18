@@ -1,14 +1,18 @@
-import React from "react";
 import { src, srcset } from "../utils";
 
-type StoreProps = {
+type Props = {
   name?: string;
   image?: string;
   street?: string;
   city?: string;
 };
 
-const Store: React.FC<StoreProps> = ({ name = "", image = "", street = "", city = "" }) => {
+export const Store = ({
+  name = "",
+  image = "",
+  street = "",
+  city = "",
+}: Props) => {
   return (
     <li className="e_Store">
       <div className="e_Store_content">
@@ -30,5 +34,3 @@ const Store: React.FC<StoreProps> = ({ name = "", image = "", street = "", city 
     </li>
   );
 };
-
-export default Store;

@@ -1,15 +1,14 @@
-@import url("./VariantOption.css");
-@import url("./ProductPage.css");
-
-:host {
+:global(:host),
+:global(explore-home-page),
+:global(explore-product-page),
+:global(explore-category-page) {
   --outer-space: 1.5rem;
   font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
 
-.e_Recommendations {
-  height: 512px;
+.main {
+  margin: 0 auto;
   max-width: calc(1000px + var(--outer-space) * 2);
-  margin: 1rem auto 2rem;
-  align-items: center;
+  padding: 0 var(--outer-space);
 }

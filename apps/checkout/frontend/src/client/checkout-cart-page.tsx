@@ -31,7 +31,7 @@ const CartPageCe = () => {
 
 defineReactWebComponent({
   component: CartPageCe,
-  cssHref: `${HOST}:${PORT}/css/index.css`,
+  css: `${HOST}:${PORT}/assets/checkout.css`,
   tag: "checkout-cart-page"
 });
 

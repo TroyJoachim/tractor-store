@@ -1,28 +1,27 @@
-.e_Product {
+.recommendation {
   margin: 0;
 }
 
-.e_Product_link {
+@media (min-width: 500px) and (max-width: 999px) {
+  .recommendation:nth-child(4) {
+    display: none;
+  }
+}
+
+.link {
   text-decoration: none;
   color: black;
 }
 
-.e_Product_image {
+.image {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
   display: block;
 }
 
-.e_Product_name {
-  margin: 12px 0 8px;
-  color: black;
-  text-align: center;
-  display: block;
-}
-
-.e_Product_price {
-  margin: 8px 0;
+.name {
+  margin: 1rem 0;
   color: black;
   text-align: center;
   display: block;

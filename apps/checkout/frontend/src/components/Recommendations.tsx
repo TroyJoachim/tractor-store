@@ -1,5 +1,5 @@
-import React from "react";
-import Recommendation from "./Recommendation";
+import { Recommendation } from "./Recommendation";
+import css from "./Recommendations.module.css";
 
 interface RecommendationItem {
   image: string;
@@ -8,17 +8,15 @@ interface RecommendationItem {
   sku: string;
 }
 
-interface RecommendationsProps {
+interface Props {
   recommendations?: RecommendationItem[];
 }
 
-const Recommendations: React.FC<RecommendationsProps> & { api: string } = ({
-  recommendations = [],
-}) => {
+export const Recommendations = ({ recommendations = [] }: Props) => {
   return recommendations.length ? (
-    <div className="ch_Recommendations" data-boundary="checkout">
+    <div className={css.recommendations} data-boundary="checkout">
       <h2>Recommendations</h2>
-      <ul className="ch_Recommendations__list">
+      <ul className={css.list}>
         {recommendations.map((rec) => (
           <Recommendation key={rec.sku} {...rec} />
         ))}
@@ -26,7 +24,3 @@ const Recommendations: React.FC<RecommendationsProps> & { api: string } = ({
     </div>
   ) : null;
 };
-
-Recommendations.api = "/recommendations";
-
-export default Recommendations;

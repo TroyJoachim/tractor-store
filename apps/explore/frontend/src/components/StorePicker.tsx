@@ -1,6 +1,7 @@
 import { useRef } from "react";
-import Button from "./Button";
+import { Button } from "./Button";
 import { src, srcset } from "../utils";
+import css from "./StorePicker.module.css";
 
 type Store = {
   id: string | number;
@@ -32,28 +33,31 @@ export const StorePicker = ({ stores = [] }: Props) => {
   };
 
   return (
-    <div className="e_StorePicker_root">
-      <div className="e_StorePicker_control" data-boundary="explore">
-        <div className="e_StorePicker_selected"></div>
-        <Button className="e_StorePicker_recommendation" type="button" onClick={openModal}>
+    <div className={css.root}>
+      <div className={css.control} data-boundary="explore">
+        <div className={css.selected}></div>
+        <Button
+          type="button"
+          onClick={openModal}
+        >
           Choose a store
         </Button>
       </div>
-      <dialog className="e_StorePicker_dialog" ref={dialogRef} data-boundary="explore">
-        <div className="e_StorePicker_wrapper">
+      <dialog className={css.dialog} ref={dialogRef} data-boundary="explore">
+        <div className={css.wrapper}>
           <h2>Stores</h2>
-          <ul className="e_StorePicker_list">
+          <ul className={css.list}>
             {stores.map((s) => (
               <li key={s.id}>
                 <div>
                   <img
-                    className="e_StorePicker_image"
+                    className={css.image}
                     src={src(s.image || "", 200)}
                     srcSet={srcset(s.image || "", [200, 400])}
                     width={200}
                     height={200}
                   />
-                  <p className="e_StorePicker_address">
+                  <p className={css.address}>
                     {s.name}
                     <br />
                     {s.street}
@@ -62,7 +66,7 @@ export const StorePicker = ({ stores = [] }: Props) => {
                   </p>
                 </div>
                 <Button
-                  extraClass="e_StorePicker_select"
+                  extraClass={css.select}
                   type="button"
                   onClick={(e) => selectStore(e, s.id)}
                 >
