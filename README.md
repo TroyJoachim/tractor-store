@@ -8,14 +8,14 @@ A micro frontends sample implementation of [The Tractor Store](https://micro-fro
 
 | Aspect                     | Solution                                         |
 | -------------------------- | ------------------------------------------------ |
-| 🛠️ Frameworks, Libraries   | [React], [Vite], [Express]                        |
+| 🛠️ Frameworks, Libraries   | [React], [Vite], [Express]                       |
 | 📝 Rendering               | Client-Side Rendering (CSR)                      |
 | 🐚 Application Shell       | Shell App                                        |
 | 🧩 Client-Side Integration | Web Components (Custom Elements)                 |
 | 🧩 Server-Side Integration | REST APIs                                        |
 | 📣 Communication           | Custom Events, HTML Attributes                   |
 | 🗺️ Navigation              | SPA with Micro-Frontend Composition              |
-| 🎨 Styling                 | Self-Contained CSS (Shadow DOM)                  |
+| 🎨 Styling                 | CSS Modules, style isolation (Shadow DOM)        |
 | 🍱 Design System           | None                                             |
 | 🔮 Discovery               | Module Federation                                |
 | 👩‍💻 Local Development       | [pnpm workspaces], [concurrently], [Vite]        |
